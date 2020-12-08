@@ -15,7 +15,20 @@ export default createGlobalStyle`
   }
 
   body {
-    background-color: var(--color-primary);
-    color: var(--color-light)
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to top, black 0%, rgba(128,128,128,.3) 100%),
+      url('./background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--color-light);
+    display: flex;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+  }
+  #root {
+    width: 90%;
+    height: 100%;
   }
 `;
