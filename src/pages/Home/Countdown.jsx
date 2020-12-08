@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Container from "../../styles/countdown.styles";
+import { Container, TimeContainer } from "../../styles/countdown.styles";
 import { calculateDistance } from "../../utils/utils";
 import CountHolder from "./CountHolder";
 
@@ -29,9 +29,11 @@ const Countdown = () => {
   return (
     <Container>
       <CountHolder count={time.days} name="Dias" />
-      <CountHolder count={time.hours} name="Horas" />
-      <CountHolder count={time.minutes} name="Minutos" />
-      <CountHolder count={time.seconds} name="Segundos" />
+      <TimeContainer>
+        <CountHolder count={time.hours} name="Horas" />
+        <CountHolder count={time.minutes} name="Minutos" />
+        <CountHolder count={time.seconds} name="Segundos" />
+      </TimeContainer>
     </Container>
   );
 };
