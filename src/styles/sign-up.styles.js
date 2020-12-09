@@ -22,6 +22,22 @@ export const Title = styled.div`
   margin-bottom: 20px;
 `;
 
+export const TextContainer = styled.div`
+  margin-top: 100px;
+`;
+
+export const LogoContainer = styled.div`
+  background-color: var(--color-primary);
+  position: fixed;
+  top: 0px;
+  padding: 1.5rem;
+  left: 0px;
+  width: 100%;
+  @media (max-width: 600px) {
+    padding: 0px;
+  }
+`;
+
 export const Form = styled.form`
   background: var(--color-light);
 `;

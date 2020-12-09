@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Title } from "../../styles/logo.styles";
+import { Image, Title } from "../styles/logo.styles";
 
 const Logo = () => (
   <>

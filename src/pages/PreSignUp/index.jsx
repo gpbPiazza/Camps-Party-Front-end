@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import MainContainer from "../../styles/container.styles";
-import { Container, Text, Title, Form } from "../../styles/sign-up.styles";
+import {
+  Container,
+  Text,
+  Title,
+  Form,
+  LogoContainer,
+  TextContainer,
+} from "../../styles/sign-up.styles";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import Logo from "./Logo";
+import Logo from "../../components/Logo";
 
 const PreSignUp = () => {
   const [email, setEmail] = useState(null);
@@ -28,11 +35,17 @@ const PreSignUp = () => {
     <MainContainer>
       <Container>
         <Title>
-          <Logo />
-          <Text>Bem vindo a Camps Party</Text>
-          <Text>Essa é a sua pré-inscrição</Text>
-          <Text>Ao preenche-la sua vaga já está garantida</Text>
-          <Text>Mas não esqueça de preencher o restante da sua inscrição!</Text>
+          <LogoContainer>
+            <Logo background="black" height="3rem" />
+          </LogoContainer>
+          <TextContainer>
+            <Text>Bem vindo a Camps Party</Text>
+            <Text>Essa é a sua pré-inscrição</Text>
+            <Text>Ao preenche-la sua vaga já está garantida</Text>
+            <Text>
+              Mas não esqueça de preencher o restante da sua inscrição!
+            </Text>
+          </TextContainer>
         </Title>
         <Form onSubmit={handleSubmit}>
           <Input
