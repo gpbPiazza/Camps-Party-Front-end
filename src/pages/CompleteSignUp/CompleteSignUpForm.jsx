@@ -46,7 +46,14 @@ const CompleteSignUpForm = () => {
           value={numberCellPhone}
           onChange={(e) => setNumberCellPhone(masks(e.target.value, "tel"))}
         />
-        <Select />
+        <Select
+          options={[
+            { text: "Genêro" },
+            { text: "Feminino" },
+            { text: "Masculino" },
+            { text: "Prefiro não informar" },
+          ]}
+        />
       </PersonalInfoBox>
       <AddressBox>
         <Title>Endereço:</Title>
