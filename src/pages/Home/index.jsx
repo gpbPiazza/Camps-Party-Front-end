@@ -1,7 +1,7 @@
 import React from "react";
 import Countdown from "./Countdown";
 import MainContainer from "../../styles/container.styles";
-import Logo from "./Logo";
+import Logo from "../../components/Logo";
 
 const Home = () => (
   <MainContainer>

@@ -4,12 +4,14 @@ export const Container = styled.button`
   width: 100%;
   height: 46px;
 
+  max-width: 300px;
+
   border-radius: 0.2rem;
   background-color: var(--color-primary);
 
   cursor: pointer;
 
-  margin: 0.3rem 0;
+  margin: 20px.3rem 0;
 `;
 
 export const Text = styled.p`
