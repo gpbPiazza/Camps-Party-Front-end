@@ -6,6 +6,8 @@ export default createGlobalStyle`
     --color-secondary: #eee;
     --color-light: #fff;
     --color-dark: #000;
+    --color-red: #d00a01;
+    --color-darkGrey: #212530;
   }
 
   * {
@@ -27,6 +29,15 @@ export default createGlobalStyle`
     justify-content: center;
     font-family: "Poppins", sans-serif;
   }
+  
+  button, input, textarea {
+        outline: none;
+        border: none;
+        background: none;
+        color: inherit;
+        font: inherit;
+        padding: 0px;
+    }
   #root {
     width: 90%;
     height: 100%;
