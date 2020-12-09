@@ -59,9 +59,15 @@ export const LogoContainer = styled.div`
 export const Form = styled.form`
   background: var(--color-light);
 
+  display: flex;
+  flex-direction: ${(props) => props.flexDirection || "column"};
+  align-items: center;
+
   @media (max-width: 39.9em) {
     & > button {
       width: 95%;
     }
+    margin-top: 2rem;
+    flex-direction: column;
   }
 `;

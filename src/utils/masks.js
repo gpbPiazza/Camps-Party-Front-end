@@ -1,4 +1,3 @@
-
 import VMasker from "vanilla-masker";
 
 // eslint-disable-next-line consistent-return

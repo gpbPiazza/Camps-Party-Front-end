@@ -30,7 +30,7 @@ export default createGlobalStyle`
     font-family: "Poppins", sans-serif;
   }
 
-  button, input, textarea {
+  button, input, textarea, select{
         outline: none;
         border: none;
         background: none;
