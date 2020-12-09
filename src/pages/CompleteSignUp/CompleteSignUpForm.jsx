@@ -94,7 +94,12 @@ const CompleteSignUpForm = () => {
           onChange={(e) => setNumber(e.target.value)}
         />
       </AddressBox>
-      <Button type="submit" label="Concluir cadastro" loading={loading} />
+      <Button
+        type="submit"
+        label="Concluir cadastro"
+        loading={loading}
+        height="30%"
+      />
     </Form>
   );
 };
