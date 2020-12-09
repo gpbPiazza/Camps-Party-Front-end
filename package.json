@@ -9,8 +9,6 @@
     "@testing-library/user-event": "^12.1.10",
     "ant-design": "^1.0.0",
     "antd": "^4.9.2",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-react": "^7.21.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
@@ -46,6 +44,8 @@
   "devDependencies": {
     "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-prettier": "^3.2.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-react": "^7.21.5"
   }
 }
