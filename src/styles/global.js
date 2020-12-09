@@ -29,7 +29,7 @@ export default createGlobalStyle`
     justify-content: center;
     font-family: "Poppins", sans-serif;
   }
-  
+
   button, input, textarea {
         outline: none;
         border: none;
