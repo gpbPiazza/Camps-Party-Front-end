@@ -7,6 +7,7 @@ import {
   LogoContainer,
   TicketButton,
   Text,
+  TextContainer,
 } from "../../styles/tickets.styles";
 import Logo from "../../components/Logo";
 
@@ -42,7 +43,10 @@ const Tickets = () => {
         <LogoContainer>
           <Logo background="black" height="3rem" />
         </LogoContainer>
-        <Text>Escolha seu ingresso</Text>
+        <TextContainer>
+          <Text>Escolha seu ingresso</Text>
+          <Text>para completar sua pré-inscrição</Text>
+        </TextContainer>
         <Container>
           <TicketButton onClick={() => chooseTicket("ticket")}>
             Sem hospedagem

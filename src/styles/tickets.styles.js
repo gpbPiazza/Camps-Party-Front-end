@@ -26,7 +26,6 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.p`
-  margin-top: 200px;
   font-size: 1.15rem;
   color: var(--color-primary);
   line-height: 1.5rem;
@@ -37,7 +36,7 @@ export const Title = styled.div`
 `;
 
 export const TextContainer = styled.div`
-  margin-top: 100px;
+  margin-top: 200px;
 `;
 
 export const LogoContainer = styled.div`
