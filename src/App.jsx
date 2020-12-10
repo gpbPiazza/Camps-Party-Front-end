@@ -17,7 +17,7 @@ function App() {
         <Switch>
           <Route path="/pre-sign-up" exact component={PreSignUp} />
           <Route path="/complete-sign-up" exact component={CompleteSignUp} />
-          <Route path="/dashboard" component={UserDashboard} />
+          <Route path="/dashboard/" component={UserDashboard} />
           <Route path="/choose-ticket" exact component={Tickets} />
           <Route path="/login" exact component={LogIn} />
           <Route path="/" exact component={Home} />
