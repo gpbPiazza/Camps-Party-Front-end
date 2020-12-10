@@ -51,12 +51,14 @@ const LogInForm = () => {
         placeholder="e-mail"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        backgroundColor="transparent"
       />
       <Input
         placeholder="senha"
         value={pwd}
         type="password"
         onChange={(e) => setPwd(e.target.value)}
+        backgroundColor="transparent"
       />
       <Button type="submit" label="Entrar" loading={loading} />
     </Form>

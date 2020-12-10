@@ -19,7 +19,12 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "space-before-function-paren": "off",
     "react/jsx-filename-extension": "off",
     "react/prop-types": "off"

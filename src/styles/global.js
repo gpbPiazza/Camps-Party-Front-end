@@ -8,6 +8,7 @@ export default createGlobalStyle`
     --color-dark: #000;
     --color-red: #d00a01;
     --color-darkGrey: #212530;
+    --color-light-transparent: rgba(255,255,255,.8);
   }
 
   * {
@@ -18,7 +19,7 @@ export default createGlobalStyle`
 
   body {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-image: linear-gradient(to top, black 0%, rgba(128,128,128,.3) 100%),
       url('./background.png');
     background-position: center;
@@ -30,16 +31,16 @@ export default createGlobalStyle`
     font-family: "Poppins", sans-serif;
   }
 
-  button, input, textarea {
-        outline: none;
-        border: none;
-        background: none;
-        color: inherit;
-        font: inherit;
-        padding: 0px;
-    }
+  button, input, textarea, select {
+    outline: none;
+    border: none;
+    background: none;
+    color: inherit;
+    font: inherit;
+    padding: 0px;
+  }
+
   #root {
     width: 90%;
-    height: 100%;
   }
 `;

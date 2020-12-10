@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-  width: 100%;
-  height: 46px;
+  width: ${(props) => props.width || `100%`};
+  height: ${(props) => props.height || `46px`};
 
   max-width: 300px;
 

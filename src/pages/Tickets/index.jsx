@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import MainContainer from "../../styles/container.styles";
+import PageContainer from "../../components/PageContainer";
 import {
   Container,
-  LogoContainer,
   TicketButton,
   Text,
   TextContainer,
 } from "../../styles/tickets.styles";
-import Logo from "../../components/Logo";
 
 const Tickets = () => {
   const history = useHistory();
@@ -38,28 +36,23 @@ const Tickets = () => {
   }
 
   return (
-    <MainContainer>
+    <PageContainer>
+      <TextContainer>
+        <Text>Escolha seu ingresso</Text>
+        <Text>para completar sua pré-inscrição</Text>
+      </TextContainer>
       <Container>
-        <LogoContainer>
-          <Logo background="black" height="3rem" />
-        </LogoContainer>
-        <TextContainer>
-          <Text>Escolha seu ingresso</Text>
-          <Text>para completar sua pré-inscrição</Text>
-        </TextContainer>
-        <Container>
-          <TicketButton onClick={() => chooseTicket("ticket")}>
-            Sem hospedagem
-          </TicketButton>
-          <TicketButton onClick={() => chooseTicket("camp")}>
-            Acampamento
-          </TicketButton>
-          <TicketButton onClick={() => chooseTicket("hotel")}>
-            Hotel parceiro
-          </TicketButton>
-        </Container>
+        <TicketButton onClick={() => chooseTicket("ticket")}>
+          Sem hospedagem
+        </TicketButton>
+        <TicketButton onClick={() => chooseTicket("camp")}>
+          Acampamento
+        </TicketButton>
+        <TicketButton onClick={() => chooseTicket("hotel")}>
+          Hotel parceiro
+        </TicketButton>
       </Container>
-    </MainContainer>
+    </PageContainer>
   );
 };
 
