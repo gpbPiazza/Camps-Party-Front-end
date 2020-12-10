@@ -1,29 +1,50 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { Form } from "../../styles/sign-up.styles";
 import masks from "../../utils/masks";
 
 const SignUpForm = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [cpf, setCpf] = useState("");
   const [pwd, setPwd] = useState("");
   const [confirmPwd, setConfirmPwd] = useState("");
   const [loading, setLoading] = useState("");
 
+  function handleSuccess() {
+    setLoading(false);
+    history.push("/choose-ticket");
+  }
+
+  function handleFail(e) {
+    setLoading(false);
+    if (e.response.status === 422) {
+      alert("Preencha os campos corretamente");
+    } else if (e.response.status === 409) {
+      alert("E-mail já está em uso");
+    } else {
+      alert("Erro ao cadastrar");
+    }
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     if (loading) return;
     setLoading(true);
 
-    const user = {
+    const body = {
       email,
       cpf,
       pwd,
       confirmPwd,
     };
-    console.log(user);
-    setLoading(false);
+
+    const request = axios.post("http://localhost:4000/user/pre-register", body);
+
+    request.then(handleSuccess).catch(handleFail);
   }
   return (
     <Form onSubmit={handleSubmit}>
@@ -53,7 +74,7 @@ const SignUpForm = () => {
         onChange={(e) => setConfirmPwd(e.target.value)}
         backgroundColor="transparent"
       />
-      <Button type="submit" label="enviar" loading={loading} />
+      <Button type="submit" label="Escolher meu ingresso" loading={loading} />
     </Form>
   );
 };
