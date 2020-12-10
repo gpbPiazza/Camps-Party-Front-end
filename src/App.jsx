@@ -4,6 +4,7 @@ import GlobalStyle from "./styles/global";
 import Home from "./pages/Home/index";
 import PreSignUp from "./pages/PreSignUp/index";
 import CompleteSignUp from "./pages/CompleteSignUp/index";
+import UserDashboard from "./pages/UserDashboard/index";
 import { UserProvider } from "./contexts/UserContext";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route path="/pre-sign-up" exact component={PreSignUp} />
           <Route path="/complete-sign-up" exact component={CompleteSignUp} />
+          <Route path="/dashboard" component={UserDashboard} />
           <Route path="/" exact component={Home} />
         </Switch>
       </Router>

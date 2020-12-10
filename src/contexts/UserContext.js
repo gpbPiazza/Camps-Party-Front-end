@@ -4,12 +4,12 @@ const UserContext = createContext();
 
 export default UserContext;
 
-export function UserProvider(props) {
+export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      {props.children}
+      {children}
     </UserContext.Provider>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { TextContainer, Text } from "../../styles/sign-up.styles";
+import { Text, TextContainer } from "../../styles/sign-up.styles";
 
 const Content = () => (
   <TextContainer>
