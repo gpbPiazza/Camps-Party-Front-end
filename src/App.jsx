@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GlobalStyle from "./styles/global";
 import Home from "./pages/Home/index";
 import Tickets from "./pages/Tickets/index";
+import Hotel from "./pages/Hotel/index";
 import PreSignUp from "./pages/PreSignUp/index";
 import CompleteSignUp from "./pages/CompleteSignUp/index";
 import UserDashboard from "./pages/UserDashboard/index";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/complete-sign-up" exact component={CompleteSignUp} />
           <Route path="/dashboard" component={UserDashboard} />
           <Route path="/choose-ticket" exact component={Tickets} />
+          <Route path="/choose-hotel" exact component={Hotel} />
           <Route path="/login" exact component={LogIn} />
           <Route path="/" exact component={Home} />
         </Switch>
