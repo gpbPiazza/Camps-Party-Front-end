@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { DebounceInput } from "react-debounce-input";
 
 export const PersonalInfoBox = styled.div`
   width: 100%;
@@ -23,21 +22,10 @@ export const Title = styled.h3`
   }
 `;
 
-export const InputDeBounce = styled(DebounceInput)`
-  width: ${(props) => (props.width ? props.width : `90%`)};
-  max-width: 300px;
+export const TextError = styled.p`
+  color: var(--color-red);
+  font-size: 1.3rem;
+  line-height: 1.8rem;
 
-  border-radius: 0.2rem;
-  background-color: ${(props) =>
-    props.backgroundColor ? props.backgroundColor : `var(--color-light)`};
-  border-bottom: ${(props) =>
-    props.error
-      ? `4px solid var(--color-red)`
-      : `4px solid var(--color-primary)`};
-
-  font-size: 1rem;
-  line-height: 1.2rem;
-
-  padding: 0.8rem 1rem;
-  color: var(--color-primary);
+  text-align: center;
 `;

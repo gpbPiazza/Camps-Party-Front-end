@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 
+import { useHistory } from "react-router-dom";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { Form } from "../../styles/sign-up.styles";
@@ -10,11 +11,13 @@ import {
   PersonalInfoBox,
   AddressBox,
   Title,
+  TextError,
 } from "../../styles/completeSignUpForm";
 import signUpCompleted from "../../services/User.services";
 
 const CompleteSignUpForm = () => {
   const { user } = useContext(UserContext);
+  const history = useHistory();
   const [fullName, setFullName] = useState("");
   const [CEP, setCEP] = useState("");
   const [city, setCity] = useState("");
@@ -24,7 +27,8 @@ const CompleteSignUpForm = () => {
   const [number, setNumber] = useState("");
   const [gender, setGender] = useState("");
   const [numberCellPhone, setNumberCellPhone] = useState("");
-  // const [error, setError] = useState(false);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [loading, setLoading] = useState(false);
 
@@ -39,7 +43,18 @@ const CompleteSignUpForm = () => {
       gender,
     };
     setLoading(true);
-    await signUpCompleted(body, user.token);
+    const data = await signUpCompleted(body, user.token);
+    if (data.success) {
+      history.push("vai para próxima tela");
+    } else if (data.response.status !== 200) {
+      setError(true);
+      setErrorMessage(data.response.data.error);
+      return;
+    } else {
+      setError(true);
+      setErrorMessage("Please Check you internet conexation");
+      return;
+    }
 
     setLoading(false);
   }
@@ -111,11 +126,13 @@ const CompleteSignUpForm = () => {
         />
       </AddressBox>
       <Button
+        disabled={loading}
         type="submit"
         label="Concluir cadastro"
         loading={loading}
         height="30%"
       />
+      {error && <TextError>{errorMessage}</TextError>}
     </Form>
   );
 };

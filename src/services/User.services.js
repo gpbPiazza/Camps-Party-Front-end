@@ -9,7 +9,7 @@ async function signUpCompleted(userData, token) {
       },
     });
     if (data) {
-      return data;
+      return { success: data };
     }
   } catch (error) {
     return error;
