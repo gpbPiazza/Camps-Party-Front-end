@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { Form } from "../../styles/sign-up.styles";
 import masks from "../../utils/masks";
 import Select from "../../components/Select";
+import UserContext from "../../contexts/UserContext";
 import {
   PersonalInfoBox,
   AddressBox,
   Title,
 } from "../../styles/completeSignUpForm";
+import signUpCompleted from "../../services/User.services";
 
 const CompleteSignUpForm = () => {
+  const { user } = useContext(UserContext);
   const [fullName, setFullName] = useState("");
   const [CEP, setCEP] = useState("");
   const [city, setCity] = useState("");
@@ -18,18 +22,28 @@ const CompleteSignUpForm = () => {
   const [state, setState] = useState("");
   const [street, setStreet] = useState("");
   const [number, setNumber] = useState("");
+  const [gender, setGender] = useState("");
   const [numberCellPhone, setNumberCellPhone] = useState("");
   // const [error, setError] = useState(false);
 
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    if (loading) return;
+    const body = {
+      full_name: fullName,
+      cep: CEP,
+      address: `${city}, ${neiborhood}, ${street}, ${number}`,
+      uf: state,
+      number_cell_phone: numberCellPhone,
+      gender,
+    };
     setLoading(true);
+    await signUpCompleted(body, user.token);
 
     setLoading(false);
   }
+
   return (
     <Form onSubmit={handleSubmit} flexDirection="row">
       <PersonalInfoBox>
@@ -47,11 +61,12 @@ const CompleteSignUpForm = () => {
           onChange={(e) => setNumberCellPhone(masks(e.target.value, "tel"))}
         />
         <Select
+          onChange={(e) => setGender(e.currentTarget.value)}
           options={[
-            { text: "Genêro" },
-            { text: "Feminino" },
-            { text: "Masculino" },
-            { text: "Prefiro não informar" },
+            { label: "Genêro", value: "Genêro" },
+            { label: "Feminino", value: "Feminino" },
+            { label: "Masculino", value: "Masculino" },
+            { label: "Prefiro não informar", value: "Prefiro não informar" },
           ]}
         />
       </PersonalInfoBox>
@@ -65,7 +80,8 @@ const CompleteSignUpForm = () => {
         />
         <Input
           type="text"
-          placeholder="Estado"
+          maxlength="2"
+          placeholder="Estado (uf)"
           value={state}
           onChange={(e) => setState(e.target.value)}
         />
@@ -104,3 +120,9 @@ const CompleteSignUpForm = () => {
   );
 };
 export default CompleteSignUpForm;
+
+// {
+//   userId: 1,
+//   token: token,
+//   tipoTicket: hotel
+// }

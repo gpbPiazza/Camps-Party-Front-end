@@ -10,11 +10,13 @@ export default function Input({
   onFocus,
   error,
   width,
+  onBlur,
   backgroundColor,
 }) {
   return (
     <Container>
       <ContentInput
+        onBlur={onBlur}
         backgroundColor={backgroundColor}
         width={width}
         type={type}
