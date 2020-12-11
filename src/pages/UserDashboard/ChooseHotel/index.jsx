@@ -32,9 +32,14 @@ const Hotel = () => {
       id: user.id,
     };
 
-    const request = axios.post(
-      "https://api-camps-party-qqrcoisa.herokuapp.com/user/ticket",
-      body
+const request = axios.post(
+      "https://api-camps-party-qqrcoisa.herokuapp.com/event/hotel/name",
+      body,
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
     );
     request.then(handleSuccess).catch(handleFail);
   }
