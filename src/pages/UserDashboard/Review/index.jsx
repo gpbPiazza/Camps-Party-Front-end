@@ -4,7 +4,8 @@ import UserContext from "../../../contexts/UserContext";
 import UserDashboardContainer from "../Container";
 
 const Review = () => {
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
+
   return (
     <UserDashboardContainer>
       <TextContainer>
