@@ -37,12 +37,13 @@ const CompleteSignUpForm = () => {
     setLoading(true);
     const data = await signUpCompleted(body, user.token);
     if (data.success) {
-      history.push("./choose-ticket");
+      history.push("./dashboard");
     } else if (data.response.status !== 200) {
       setError(true);
       setErrorMessage(data.response.data.error);
       return;
     } else {
+      setLoading(false);
       setError(true);
       setErrorMessage("Please Check you internet conexation");
       return;
