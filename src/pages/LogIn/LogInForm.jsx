@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import UserContext from "../../contexts/UserContext";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { Form } from "../../styles/sign-up.styles";
 
 const LogInForm = () => {
   const history = useHistory();
+  const { setUser } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [loading, setLoading] = useState(false);
