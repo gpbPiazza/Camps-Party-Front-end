@@ -16,7 +16,7 @@ const LogInForm = () => {
   function handleSuccess(response) {
     setUser(response.data);
     setLoading(false);
-    history.push("/edit-ticket");
+    history.push("/dashboard");
   }
 
   function handleFail(e) {
