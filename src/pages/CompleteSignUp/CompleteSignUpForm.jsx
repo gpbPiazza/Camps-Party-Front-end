@@ -37,7 +37,7 @@ const CompleteSignUpForm = () => {
     setLoading(true);
     const data = await signUpCompleted(body, user.token);
     if (data.success) {
-      history.push("vai para próxima tela");
+      history.push("./choose-ticket");
     } else if (data.response.status !== 200) {
       setError(true);
       setErrorMessage(data.response.data.error);
