@@ -1,10 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { TextContainer, Container, Text } from "../../../styles/review.styles";
+import Ticket from "../../../services/Activities.services";
 import UserContext from "../../../contexts/UserContext";
 import UserDashboardContainer from "../Container";
 
 const Review = () => {
   const { user } = useContext(UserContext);
+  const [ticket, setTicket] = useState("");
+
+  const getTicket = async () => {
+    const data = await Ticket(user.token);
+    if (data.success) {
+      setTicket(data.success.ticket_type);
+    } else {
+      setTicket("");
+    }
+  };
+
+  useEffect(() => {
+    getTicket();
+  }, []);
 
   return (
     <UserDashboardContainer>
@@ -36,11 +51,12 @@ const Review = () => {
           </p>
           <p>
             <strong>Tipo de Ingresso: </strong>
+            {ticket}
           </p>
         </div>
         <div>
           <p>
-            <strong>Status da Inscrição:</strong>
+            <strong>Status da Inscrição: </strong>
           </p>
         </div>
       </Container>
