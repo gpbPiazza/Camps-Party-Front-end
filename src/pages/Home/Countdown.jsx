@@ -26,11 +26,12 @@ const Countdown = () => {
   };
 
   const isTheEnd = !!(
-    time.minutes <= 0 &&
-    time.minutes <= 0 &&
-    time.days <= 0 &&
-    time.hours <= 0
+    time.minutes[1] === "-" &&
+    time.minutes[1] === "-" &&
+    time.days[1] === "-" &&
+    time.hours[1] === "-"
   );
+  console.log(time.minutes[1]);
 
   useEffect(() => {
     const tick = setInterval(() => updateCountdown(), 1000);
