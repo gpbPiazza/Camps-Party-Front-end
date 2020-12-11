@@ -14,6 +14,7 @@ const Hotel = () => {
   const history = useHistory();
   const { user } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
+  console.log(user);
 
   function handleSuccess() {
     setLoading(false);
@@ -28,11 +29,11 @@ const Hotel = () => {
     if (loading) return;
     setLoading(true);
     const body = {
-      hotelName,
-      id: user.id,
+      hotel_name: hotelName,
+      user_id: user.id,
     };
 
-const request = axios.post(
+    const request = axios.post(
       "https://api-camps-party-qqrcoisa.herokuapp.com/event/hotel/name",
       body,
       {
