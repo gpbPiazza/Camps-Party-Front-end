@@ -11,7 +11,8 @@ const LogInForm = () => {
   const [pwd, setPwd] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function handleSuccess() {
+  function handleSuccess(response) {
+    setUser(response.data);
     setLoading(false);
     history.push("/dashboard");
   }
