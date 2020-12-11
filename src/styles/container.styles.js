@@ -33,6 +33,7 @@ export const LogoContainer = styled.div`
   padding: 1rem 0;
   display: flex;
   align-items: center;
+  z-index: 9;
 
   & > img {
     margin: 0 0.5rem 0 1rem;

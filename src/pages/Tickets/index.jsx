@@ -15,15 +15,14 @@ const Tickets = () => {
   const { user } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   function handleSuccess() {
-    console.log("foi");
     setLoading(false);
     history.push("/login");
   }
 
   function handleFail() {
     setLoading(false);
-    console.log("nao foi");
   }
+
   function chooseTicket(typeOfTicket) {
     if (loading) return;
     setLoading(true);
