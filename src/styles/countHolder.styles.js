@@ -12,7 +12,7 @@ const Title = styled.h1`
 
   @media (min-width: 40rem) {
     & {
-      font-size: 6rem;
+      font-size: 7rem;
     }
   }
 `;
