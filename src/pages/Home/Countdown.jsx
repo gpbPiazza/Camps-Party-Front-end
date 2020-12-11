@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Container, TimeContainer } from "../../styles/countdown.styles";
 import { calculateDistance } from "../../utils/utils";
 import CountHolder from "./CountHolder";
+import Button from "../../components/Button";
 
 const Countdown = () => {
   const [countdown] = useState(new Date("2020-12-11T18:00:00-0300").getTime());
@@ -12,6 +14,8 @@ const Countdown = () => {
     seconds: 0,
   });
 
+  const history = useHistory();
+
   const updateCountdown = () => {
     if (countdown) {
       const currentTime = new Date().getTime();
@@ -21,10 +25,27 @@ const Countdown = () => {
     }
   };
 
+  const isTheEnd = !!(
+    time.minutes <= 0 &&
+    time.minutes <= 0 &&
+    time.days <= 0 &&
+    time.hours <= 0
+  );
+
   useEffect(() => {
     const tick = setInterval(() => updateCountdown(), 1000);
     return () => clearInterval(tick);
   });
+
+  if (isTheEnd)
+    return (
+      <Button
+        label="Fazer Pré-inscrição"
+        width="15rem"
+        height="3rem"
+        onClick={() => history.push("./pre-sign-up")}
+      />
+    );
 
   return (
     <Container>
