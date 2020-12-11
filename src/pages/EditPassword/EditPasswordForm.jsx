@@ -71,7 +71,7 @@ const EditPasswordForm = () => {
         onChange={(e) => setConfirmPwd(e.target.value)}
         backgroundColor="transparent"
       />
-      <Button type="submit" label="Escolher meu ingresso" loading={loading} />
+      <Button type="submit" label="Alterar senha" loading={loading} />
     </Form>
   );
 };
