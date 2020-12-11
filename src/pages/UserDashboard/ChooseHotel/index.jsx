@@ -1,14 +1,15 @@
 import React, { useState, useContext } from "react";
 // import { useHistory } from "react-router-dom";
 // import axios from "axios";
-import UserContext from "../../contexts/UserContext";
-import PageContainer from "../../components/PageContainer";
+import UserContext from "../../../contexts/UserContext";
+// import PageContainer from "../../../components/PageContainer";
+import { Text } from "../../../styles/tickets.styles";
 import {
-  Container,
-  TicketButton,
-  Text,
   TextContainer,
-} from "../../styles/tickets.styles";
+  HotelButton,
+  Container,
+} from "../../../styles/hotels.styles";
+import UserDashboardContainer from "../Container";
 
 const Hotel = () => {
   //   const history = useHistory();
@@ -41,28 +42,28 @@ const Hotel = () => {
   }
 
   return (
-    <PageContainer>
+    <UserDashboardContainer>
       <TextContainer>
         <Text>Escolha seu hotel</Text>
       </TextContainer>
       <Container>
-        <TicketButton onClick={() => chooseHotel("la_residence")}>
+        <HotelButton onClick={() => chooseHotel("la_residence")}>
           La Residence Paulista
-        </TicketButton>
-        <TicketButton onClick={() => chooseHotel("dan_inn")}>
+        </HotelButton>
+        <HotelButton onClick={() => chooseHotel("dan_inn")}>
           Dan Inn Planalto São Paulo
-        </TicketButton>
-        <TicketButton onClick={() => chooseHotel("intercity")}>
+        </HotelButton>
+        <HotelButton onClick={() => chooseHotel("intercity")}>
           Intercity São Paulo Ibirapuera
-        </TicketButton>
-        <TicketButton onClick={() => chooseHotel("blue_tree")}>
+        </HotelButton>
+        <HotelButton onClick={() => chooseHotel("blue_tree")}>
           Blue Tree Premium
-        </TicketButton>
-        <TicketButton onClick={() => chooseHotel("quality")}>
+        </HotelButton>
+        <HotelButton onClick={() => chooseHotel("quality")}>
           Quality Faria Lima
-        </TicketButton>
+        </HotelButton>
       </Container>
-    </PageContainer>
+    </UserDashboardContainer>
   );
 };
 

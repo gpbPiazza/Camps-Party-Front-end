@@ -79,7 +79,7 @@ const CompleteSignUpForm = () => {
       <Button
         disabled={loading}
         type="submit"
-        label="Concluir cadastro"
+        label="Escolher Ingresso"
         loading={loading}
         height="4rem"
       />

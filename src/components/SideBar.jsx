@@ -8,7 +8,7 @@ import {
   ContactsOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { Container, iconStyle } from "../../styles/userDashboard.styles";
+import { Container, iconStyle } from "../styles/userDashboard.styles";
 
 const SideBar = () => (
   <Container>
@@ -17,15 +17,15 @@ const SideBar = () => (
         <BookOutlined style={iconStyle} />
         <p>Resumo</p>
       </Link>
-      <Link to="registration">
+      <Link to="complete-sign-up">
         <FormOutlined style={iconStyle} />
         <p>Inscrição</p>
       </Link>
-      <Link to="hotel">
+      <Link to="choose-hotel">
         <HomeOutlined style={iconStyle} />
         <p>Hotel</p>
       </Link>
-      <Link to="activities">
+      <Link to="choose-activities">
         <ContactsOutlined style={iconStyle} />
         <p>Atividades</p>
       </Link>

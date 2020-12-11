@@ -1,12 +1,11 @@
 import React from "react";
 import PageContainer from "../../components/PageContainer";
-import SideBar from "./SideBar";
-import SectionContent from "./SectionContent";
+import SideBar from "../../components/SideBar";
 
-const UserDashboard = () => (
+const UserDashboard = ({ children }) => (
   <PageContainer>
     <SideBar />
-    <SectionContent />
+    {children}
   </PageContainer>
 );
 export default UserDashboard;
