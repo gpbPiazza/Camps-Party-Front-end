@@ -23,7 +23,6 @@ const CompleteSignUpForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const [loading, setLoading] = useState(false);
-
   async function handleSubmit(e) {
     e.preventDefault();
     const body = {
@@ -37,7 +36,7 @@ const CompleteSignUpForm = () => {
     setLoading(true);
     const data = await signUpCompleted(body, user.token);
     if (data.success) {
-      history.push("vai para próxima tela");
+      history.push("/dashboard");
     } else if (data.response.status !== 200) {
       setError(true);
       setErrorMessage(data.response.data.error);

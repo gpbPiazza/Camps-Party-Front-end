@@ -10,8 +10,8 @@ import {
   TextContainer,
 } from "../../styles/tickets.styles";
 
-const Hotel = () => {
-  //   const history = useHistory();
+const EditTicket = () => {
+  //  const history = useHistory();
   const { user } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   //   function handleSuccess() {
@@ -19,25 +19,24 @@ const Hotel = () => {
   //     setLoading(false);
   //     history.push("/dashboard");
   //   }
-  //   console.log(user);
+
   //   function handleFail() {
   //     setLoading(false);
   //     console.log("nao foi");
   //   }
-  console.log(user);
-  function chooseHotel(hotelName) {
+  function chooseTicket(typeOfTicket) {
     if (loading) return;
     setLoading(true);
     const body = {
-      hotelName,
+      typeOfTicket,
       id: user.id,
     };
-    console.log(body);
 
+    console.log(body);
     // const request = axios.post(
-    //   "https://api-camps-party-qqrcoisa.herokuapp.com/user/ticket",
+    //   "https://api-camps-party-qqrcoisa.herokuapp.com/event/ticket",
     //   body,
-    //    {
+    //   {
     //     headers: {
     //       Authorization: `Bearer ${user.token}`,
     //     },
@@ -49,27 +48,21 @@ const Hotel = () => {
   return (
     <PageContainer>
       <TextContainer>
-        <Text>Escolha seu hotel</Text>
+        <Text>Escolha o novo ingresso</Text>
       </TextContainer>
       <Container>
-        <TicketButton onClick={() => chooseHotel("la_residence")}>
-          La Residence Paulista
+        <TicketButton onClick={() => chooseTicket("ticket")}>
+          Sem hospedagem
         </TicketButton>
-        <TicketButton onClick={() => chooseHotel("dan_inn")}>
-          Dan Inn Planalto São Paulo
+        <TicketButton onClick={() => chooseTicket("camp")}>
+          Acampamento
         </TicketButton>
-        <TicketButton onClick={() => chooseHotel("intercity")}>
-          Intercity São Paulo Ibirapuera
-        </TicketButton>
-        <TicketButton onClick={() => chooseHotel("blue_tree")}>
-          Blue Tree Premium
-        </TicketButton>
-        <TicketButton onClick={() => chooseHotel("quality")}>
-          Quality Faria Lima
+        <TicketButton onClick={() => chooseTicket("hotel")}>
+          Hotel parceiro
         </TicketButton>
       </Container>
     </PageContainer>
   );
 };
 
-export default Hotel;
+export default EditTicket;

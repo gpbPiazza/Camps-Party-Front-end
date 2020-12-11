@@ -5,6 +5,8 @@ import Home from "./pages/Home/index";
 import Tickets from "./pages/Tickets/index";
 import Hotel from "./pages/Hotel/index";
 import PreSignUp from "./pages/PreSignUp/index";
+import EditPassword from "./pages/EditPassword/index";
+import EditTicket from "./pages/EditTicket/index";
 import CompleteSignUp from "./pages/CompleteSignUp/index";
 import UserDashboard from "./pages/UserDashboard/index";
 import { UserProvider } from "./contexts/UserContext";
@@ -21,6 +23,8 @@ function App() {
           <Route path="/dashboard" component={UserDashboard} />
           <Route path="/choose-ticket" exact component={Tickets} />
           <Route path="/choose-hotel" exact component={Hotel} />
+          <Route path="/edit-password" exact component={EditPassword} />
+          <Route path="/edit-ticket" exact component={EditTicket} />
           <Route path="/login" exact component={LogIn} />
           <Route path="/" exact component={Home} />
         </Switch>
