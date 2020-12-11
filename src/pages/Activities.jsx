@@ -213,7 +213,7 @@ const SegundaColuna = styled.div`
   justify-content: space-around:
 
   h1{
-    margin-right: 10px;
+    margin-right: 15px;
   }
 `;
 
