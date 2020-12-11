@@ -19,7 +19,7 @@ export const Container = styled.div`
   justify-content: center;
   border-radius: 0.2rem;
   background-color: var(--color-light-transparent);
-  cursor: pointer;
+  /* cursor: pointer; */
 
   margin: 0.3rem 0;
 `;
