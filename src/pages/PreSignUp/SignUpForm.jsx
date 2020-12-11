@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import UserContext from "../../contexts/UserContext";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { Form } from "../../styles/sign-up.styles";
@@ -8,14 +9,16 @@ import masks from "../../utils/masks";
 
 const SignUpForm = () => {
   const history = useHistory();
+  const { setUser } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [cpf, setCpf] = useState("");
   const [pwd, setPwd] = useState("");
   const [confirmPwd, setConfirmPwd] = useState("");
   const [loading, setLoading] = useState("");
 
-  function handleSuccess() {
+  function handleSuccess(response) {
     setLoading(false);
+    setUser(response.data);
     history.push("/choose-ticket");
   }
 
@@ -42,7 +45,10 @@ const SignUpForm = () => {
       confirmPwd,
     };
 
-    const request = axios.post("http://localhost:4000/user/pre-register", body);
+    const request = axios.post(
+      "https://api-camps-party-qqrcoisa.herokuapp.com/user/pre-register",
+      body
+    );
 
     request.then(handleSuccess).catch(handleFail);
   }
