@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 import UserContext from "../../contexts/UserContext";
 import Button from "../../components/Button";
 import { TextError, Form } from "../../styles/completeSignUpForm";
@@ -23,28 +24,56 @@ const CompleteSignUpForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const [loading, setLoading] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
+  const [addressParts, setAddressParts] = useState([]);
+
+  function handleUserInfo(response) {
+    setUserInfo(response.data);
+    setAddressParts(response.data.address.split(","));
+  }
+
+  useEffect(() => {
+    const request = axios.get(
+      "https://api-camps-party-qqrcoisa.herokuapp.com/user/completed-register",
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
+
+    request.then(handleUserInfo).catch((e) => console.log(e.status));
+  }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const body = {
-      full_name: fullName,
-      cep: CEP,
-      address: `${city}, ${neighborhood}, ${street}, ${number}`,
-      uf: state,
-      number_cell_phone: numberCellPhone,
-      gender,
-    };
     setLoading(true);
+    const userCity = city || addressParts[0];
+    const userNeighborhood = neighborhood || addressParts[1];
+    const userStreet = street || addressParts[2];
+    const userNumber = number || addressParts[3];
+
+    const body = {
+      full_name: fullName || userInfo.full_name,
+      cep: CEP || userInfo.cep,
+      address: `${userCity}, ${userNeighborhood}, ${userStreet}, ${userNumber}`,
+      uf: state || userInfo.uf,
+      number_cell_phone: numberCellPhone || userInfo.number_cell_phone,
+      gender: gender || userInfo.gender,
+    };
+
     const data = await signUpCompleted(body, user.token);
     if (data.success) {
-      history.push("./choose-ticket");
+      history.push("/dashboard");
     } else if (data.response.status !== 200) {
       setError(true);
       setErrorMessage(data.response.data.error);
+      setLoading(false);
       return;
     } else {
       setError(true);
       setErrorMessage("Please Check you internet conexation");
+      setLoading(false);
       return;
     }
     setLoading(false);
