@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
